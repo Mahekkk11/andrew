@@ -1,0 +1,9 @@
+1-data-binding
+2-student-detail
+3-faculty-list
+4-directive
+5-validation
+6-template-driven
+7-profile-component
+8-faculty-compoent
+9-module-based-app

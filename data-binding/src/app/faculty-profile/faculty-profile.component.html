@@ -1,0 +1,17 @@
+<h2>Faculty Profile</h2>
+
+<div *ngIf="!isEditing">
+  <p><strong>ID:</strong> {{ faculty.id }}</p>
+  <p><strong>Name:</strong> {{ faculty.name }}</p>
+  <p><strong>Department:</strong> {{ faculty.department }}</p>
+  <p><strong>Email:</strong> {{ faculty.email }}</p>
+  <button (click)="toggleEdit()">Edit Profile</button>
+</div>
+
+<div *ngIf="isEditing">
+  <label>ID: <input [(ngModel)]="faculty.id" /></label><br />
+  <label>Name: <input [(ngModel)]="faculty.name" /></label><br />
+  <label>Department: <input [(ngModel)]="faculty.department" /></label><br />
+  <label>Email: <input [(ngModel)]="faculty.email" /></label><br />
+  <button (click)="toggleEdit()">Save</button>
+</div>
