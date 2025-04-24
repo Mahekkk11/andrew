@@ -1,0 +1,55 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+crossorigin="anonymous">
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Student Registration Form</h3>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="w-50 mx-auto border p-4 rounded shadow">
+    <div class="mb-3">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" />
+      <small class="text-danger" *ngIf="studentForm.get('firstName')?.touched && studentForm.get('firstName')?.invalid">
+        First Name is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" />
+      <small class="text-danger" *ngIf="studentForm.get('lastName')?.touched && studentForm.get('lastName')?.invalid">
+        Last Name is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+      <small class="text-danger" *ngIf="studentForm.get('email')?.touched && studentForm.get('email')?.errors?.['required']">
+        Email is required
+      </small>
+      <small class="text-danger" *ngIf="studentForm.get('email')?.touched && studentForm.get('email')?.errors?.['email']">
+        Enter a valid email
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>University</label>
+      <input type="text" class="form-control" formControlName="university" />
+      <small class="text-danger" *ngIf="studentForm.get('university')?.touched && studentForm.get('university')?.invalid">
+        University is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Course</label>
+      <input type="text" class="form-control" formControlName="course" />
+      <small class="text-danger" *ngIf="studentForm.get('course')?.touched && studentForm.get('course')?.invalid">
+        Course is required
+      </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="studentForm.invalid">
+      Register
+    </button>
+  </form>
+</div>
